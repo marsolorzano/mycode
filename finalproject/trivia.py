@@ -5,6 +5,8 @@ import random
 from pyinputplus import inputMenu
 from os import system, name
 from time import sleep
+import urllib.parse
+
 # define our clear function
 def screen_clear():
 	if name == 'nt':
@@ -17,13 +19,13 @@ def main():
     answer=input('Are you ready to play the Book Trivia Challenge? (yes/no) :')
     if answer=='yes':
         print("Let's Begin!")
+#        amount = input("How many questions would you like to answer?(1-10):")
+ #       difficulty= input("Select a difficult: Easy, Medium, Hard, or Any:")
+#        cat= input("Choose a category: Books, Sports, Art, or Music:")
 
     elif answer=='no':
         print("See you later then! Bye!")
         print(quit())
-#    question = input("How many questions would you like to answer?(1-10):")
- #   difficulty= input("Select a difficult: (Easy, Medium, Hard, or Any)")
-  #  cat= input("Choose a category: Books, Sports, Art, or Music")
 
 # data will be a python dictionary rendered from your API link's JSON!
     URL= "https://opentdb.com/api.php?amount=10&category=10&type=multiple"
@@ -46,12 +48,16 @@ def main():
             sleep(3)
             print("Next question...")
             screen_clear()
-    if score >=70:
-        print("Congrats! You really know your books!")
-        print("Your score is:",score)
-    else: 
-        print("You really need to work on your book knowledge....try getting a library card!")
-        print("Your score is:",score)
+       
+    for score in main:
+        questions = 10
+        score = score/questions(*100)
+        if score >=70:
+            print("Congrats! You really know your books!")
+            print("Your score is:",score)
+        else: 
+            print("You really need to work on your book knowledge....try getting a library card!")
+            print("Your score is:",score)
 if __name__ == "__main__":
     main()
 
