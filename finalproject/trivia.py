@@ -19,9 +19,8 @@ def main():
     answer=input('Are you ready to play the Book Trivia Challenge? (yes/no) :')
     if answer=='yes':
         print("Let's Begin!")
-#        amount = input("How many questions would you like to answer?(1-10):")
- #       difficulty= input("Select a difficult: Easy, Medium, Hard, or Any:")
-#        cat= input("Choose a category: Books, Sports, Art, or Music:")
+        sleep(1)
+        screen_clear()
 
     elif answer=='no':
         print("See you later then! Bye!")
@@ -40,24 +39,24 @@ def main():
         if result ==questiondict["correct_answer"]:
             print("Correct!")
             score += 10
-            sleep(3)
+            sleep(1)
             print("Next question...")
+            sleep(1)
             screen_clear()
         else:
             print("Incorrect!")
-            sleep(3)
+            print("The correct answer is:"+questiondict["correct_answer"])
+            sleep(1)
             print("Next question...")
+            sleep(1)
             screen_clear()
-       
-    for score in main:
-        questions = 10
-        score = score/questions(*100)
-        if score >=70:
-            print("Congrats! You really know your books!")
-            print("Your score is:",score)
-        else: 
-            print("You really need to work on your book knowledge....try getting a library card!")
-            print("Your score is:",score)
+
+    if score >=70:
+        print("Congrats! You really know your books!")
+        print("Your score is:",score)
+    else: 
+        print("You really need to work on your book knowledge....try getting a library card!")
+        print("Your score is:",score)
 if __name__ == "__main__":
     main()
 
